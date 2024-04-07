@@ -1,0 +1,85 @@
+UNSHIFT()
+The unshift() method in JavaScript is used to add one or more elements to the beginning of an array. This method changes the length of the array and returns the new length of the array.
+
+Here's a basic example:
+
+let array = [1, 2, 3];
+array.unshift(0); // array is now [0, 1, 2, 3]
+
+In your code, unshift() is used in the doublerInsert function to insert each doubled number at the beginning of the new_nums array. This results in the reversed order of elements compared to the original nums array.
+
+PUSH()
+The push() method in JavaScript is used to add one or more elements to the end of an array. This method changes the length of the array and returns the new length of the array.
+
+Here's a basic example:
+
+let array = [1, 2, 3];
+array.push(4); // array is now [1, 2, 3, 4]
+
+Unlike unshift(), which adds elements to the beginning of an array, push() adds elements to the end.
+
+RUNTIMES
+Results for the extraLargeArray (100000)
+insert 695.258958 ms
+append 1.217958 ms
+
+Results for the largeArray (10000)
+insert 6.685292 ms
+append 438.583 μs
+
+Results for the largeArray (1000)
+insert 6.685292 ms
+append 438.583 μs
+
+Results for the smallArray (100)
+insert 25.333 μs
+append 75.375 μs
+
+Results for the tinyArray (10)
+insert 18.75 μs
+append 54.167 μs
+
+The unshift method is slower than the push method because of how arrays are implemented in most programming languages, including JavaScript.
+
+When you push an element to the end of an array, the JavaScript engine simply assigns the element to a new index, which is a very fast operation.
+
+However, when you unshift an element to the beginning of an array, the JavaScript engine has to re-index every existing element in the array. This means it has to assign a new index to each element, which is a much slower operation, especially for large arrays.
+
+In the test results, you can see that the time difference between unshift and push becomes more significant as the size of the array increases. This is because the cost of re-indexing every element in the array grows with the size of the array.
+
+STEP 2: WRITE CODE 
+1. SUM ZERO
+TABLE:
+
+Call	                        Input Size (n)	        Space Complexity
+addToZero([])         	      0	                      O(0) = O(1)
+addToZero([1])	              1	                      O(1)
+addToZero([1, 2, 3])	        3	                      O(3) = O(n)
+addToZero([1, 2, 3, -2])	    4	                      O(4) = O(n)
+In each case, the space complexity is proportional to the size of the input array (n), because the function uses a Set to store the numbers it has seen. However, for an empty array, the space complexity is constant (O(1)) because no space is used to store numbers.
+
+2. UNIQUE CHARACTERS
+TABLE:
+
+Call	                        Input Size (n)	         Space Complexity
+hasUniqueChars("Monday")	    6	                       O(6) = O(n)
+hasUniqueChars("Moonday")	    7	                       O(7) = O(n)
+In each case, the space complexity is proportional to the size of the input string (n), because the function uses a Set to store the characters it has seen. The size of the Set is equal to the number of unique characters in the string, which in the worst case is equal to the length of the string.
+
+3. PANAGRAM SENTENCE
+TABLE:
+
+Call	                        Input Size (n)	          Space Complexity
+isPangram("The quick brown	  43	                      O(1)
+       fox jumps over the lazy dog")
+isPangram("Hello, world!")	  13                      	O(1)
+In each case, the space complexity is constant, O(1), because the function uses a Set to store the characters it has seen. The size of the Set is equal to the number of unique characters in the string, which in the worst case is equal to the number of letters in the English alphabet (26). This is a constant number and does not grow with the size of the input string, so the space complexity is O(1).
+
+4. LONGEST WORD 
+TABLE:
+
+Call	                        Input Size (n)	          Space Complexity
+findLongestWord(["apple", 	  3	                        O(1)
+        "banana", "cherry"])
+In this case, the space complexity is constant, O(1), because the function uses a single integer to store the maximum length. This space usage does not grow with the size of the input array, so the space complexity is O(1).
+
